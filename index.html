@@ -1,229 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Madhu ❤️ A Digital Gift</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Best Friend Madhu ❤️</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       color: #333;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      padding: 50px 20px;
       text-align: center;
-      background: rgba(255,255,255,0.85);
     }
-
+    header {
+      padding: 40px 20px;
+    }
     header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #e75480;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
-
     header p {
       font-size: 1.1rem;
     }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background: #ffffff;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #e75480;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 40px 25px;
-      background: rgba(255,255,255,0.9);
+    .slideshow {
+      max-width: 700px;
+      margin: 30px auto;
+      position: relative;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
-
-    section h2 {
+    .slides {
+      display: none;
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
+    .message {
+      background: rgba(255,255,255,0.85);
+      margin: 40px auto;
+      max-width: 700px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .message h2 {
       margin-top: 0;
       color: #e75480;
-      font-size: 2rem;
-      text-align: center;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 15px;
-    }
-
-    .text-box {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      text-align: center;
-      margin-top: 20px;
-    }
-
     footer {
-      text-align: center;
-      padding: 25px;
+      padding: 20px;
       font-size: 0.9rem;
-      color: #444;
-    }
-  
-    #musicBtn {
-      margin-left: 15px;
-      padding: 8px 14px;
-      border: none;
-      border-radius: 20px;
-      background: #e75480;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    #musicBtn:hover {
-      background: #d6456f;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Madhu 💖</h1>
-  <p>A small website filled with love, memories & smiles</p>
-</header>
-
-<nav>
-  <a href="#about">About Madhu</a>
-  <a href="#memories">Memories</a>
-  <a href="#messages">Messages</a>
-  <a href="#special">Why You’re Special</a>
-  <a href="#surprise">Surprise</a>
-  <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
-</nav>
-
-<section id="about">
-  <h2>About Madhu</h2>
-  <div class="text-box">
-    Madhu is not just a friend, but a beautiful soul who brings warmth,
-    laughter, and comfort wherever she goes. Kind-hearted, strong,
-    and endlessly supportive — she makes life brighter just by being in it.
-  </div>
-</section>
-
-<section id="memories">
-  <h2>Our Memories</h2>
-  <div class="gallery">
-    <!-- Replace image links with your own photos -->
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Memory 1">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Memory 2">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Memory 3">
-  </div>
-</section>
-
-<section id="messages">
-  <h2>Messages for You</h2>
-  <div class="text-box">
-    Thank you for being there through every high and low.
-    Thank you for the laughs, the talks, and the silence that feels safe.
-    Life is better with you in it, Madhu 💕
-  </div>
-</section>
-
-<section id="special">
-  <h2>Why You’re Special</h2>
-  <div class="text-box">
-    🌸 Your kindness touches everyone around you<br>
-    🌸 Your smile can change any bad day<br>
-    🌸 Your friendship is a true gift<br><br>
-    Never forget how loved and appreciated you are.
-  </div>
-</section>
-
-<audio id="bgMusic" loop>
-  <!-- Replace music.mp3 with your own song file -->
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  const music = document.getElementById('bgMusic');
-  const btn = document.getElementById('musicBtn');
-  let isPlaying = false;
-
-  function toggleMusic() {
-    if (isPlaying) {
-      music.pause();
-      btn.textContent = '🎵 Play Music';
-    } else {
-      music.play();
-      btn.textContent = '⏸ Pause Music';
-    }
-    isPlaying = !isPlaying;
-  }
-</script>
-
-</section>
-
-<section id="surprise">
-  <h2>Surprise for You 🎁</h2>
-  <div class="text-box">
-    This section is a little surprise just for you, Madhu 💕
-    Sit back, play the music, and relive these beautiful moments.
-  </div>
+  <header>
+    <h1>Dear Madhu 💖</h1>
+    <p>A small digital surprise made just for you</p>
+  </header>
 
   <div class="slideshow">
-    <!-- Replace these images with your own surprise photos -->
-    <img class="surpriseSlide" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" />
-    <img class="surpriseSlide" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
-    <img class="surpriseSlide" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" />
+    <!-- Replace image1.jpg, image2.jpg etc with your real photos -->
+    <img class="slides" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" />
+    <img class="slides" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+    <img class="slides" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" />
   </div>
-</section>
 
-<script>
-  let surpriseIndex = 0;
-  const surpriseSlides = document.getElementsByClassName("surpriseSlide");
+  <div class="message">
+    <h2>To My Best Friend</h2>
+    <p>
+      Madhu, thank you for being my constant support, my laughter partner,
+      and my safe place. Every memory with you is special, and I’m so grateful
+      to have you in my life. 💕
+    </p>
+    <p>
+      This little webpage may be simple, but it carries a lot of love and
+      appreciation just for you.
+    </p>
+  </div>
 
-  function showSurpriseSlides() {
-    for (let i = 0; i < surpriseSlides.length; i++) {
-      surpriseSlides[i].style.display = "none";
+  <footer>
+    Made with ❤️ just for Madhu
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slides");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
     }
-    surpriseIndex++;
-    if (surpriseIndex > surpriseSlides.length) { surpriseIndex = 1; }
-    surpriseSlides[surpriseIndex - 1].style.display = "block";
-    setTimeout(showSurpriseSlides, 2500);
-  }
 
-  showSurpriseSlides();
-</script>
-
-<footer>
-  Made with ❤️ just for Madhu
-</footer>
-
+    showSlides();
+  </script>
 </body>
 </html>
+
+
