@@ -1,4 +1,4 @@
-v<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -123,6 +123,8 @@ v<!DOCTYPE html>
   <a href="#memories">Memories</a>
   <a href="#messages">Messages</a>
   <a href="#special">Why You’re Special</a>
+  <a href="#surprise">Surprise</a>
+  <a href="#surprise">Su
   <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 </nav>
 
@@ -182,7 +184,41 @@ v<!DOCTYPE html>
       music.play();
       btn.textContent = '⏸ Pause Music';
     }
-    isPlaying = !isPlaying;
+    isPlaying = !i</section>
+
+<section id="surprise">
+  <h2>Surprise for You 🎁</h2>
+  <div class="text-box">
+    This section is a little surprise just for you, Madhu 💕
+    Sit back, play the music, and relive these beautiful moments.
+  </div>
+
+  <div class="slideshow">
+    <!-- Replace these images with your own surprise photos -->
+    <img class="surpriseSlide" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" />
+    <img class="surpriseSlide" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+    <img class="surpriseSlide" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" />
+  </div>
+</section>
+
+<script>
+  let surpriseIndex = 0;
+  const surpriseSlides = document.getElementsByClassName("surpriseSlide");
+
+  function showSurpriseSlides() {
+    for (let i = 0; i < surpriseSlides.length; i++) {
+      surpriseSlides[i].style.display = "none";
+    }
+    surpriseIndex++;
+    if (surpriseIndex > surpriseSlides.length) { surpriseIndex = 1; }
+    surpriseSlides[surpriseIndex - 1].style.display = "block";
+    setTimeout(showSurpriseSlides, 2500);
+  }
+
+  showSurpriseSlides();
+</script>
+
+<footer>;
   }
 </script>
 
