@@ -7,35 +7,25 @@
 <style>
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #e9ddff, #f6efff);
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e6d9ff, #f3e8ff);
   color: #4b3b6b;
   text-align: center;
-  overflow-x: hidden;
-}
-
-/* Floating hearts */
-.heart {
-  position: fixed;
-  bottom: -10px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-  opacity: 0.6;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-110vh); }
 }
 
 header {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #b39ddb, #d1c4e9);
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #b8a1e3, #d6c7f7);
   color: white;
 }
 
 header h1 {
   font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
 }
 
 nav {
@@ -43,11 +33,12 @@ nav {
 }
 
 button {
-  margin: 12px;
-  padding: 14px 32px;
-  border-radius: 30px;
+  display: block;
+  margin: 15px auto;
+  padding: 14px 30px;
+  font-size: 1.1rem;
   border: none;
-  font-size: 1.05rem;
+  border-radius: 30px;
   background: #b39ddb;
   color: white;
   cursor: pointer;
@@ -62,41 +53,35 @@ button:hover {
   background: white;
   margin: 30px auto;
   padding: 40px 25px;
-  max-width: 850px;
+  max-width: 800px;
   border-radius: 25px;
-  box-shadow: 0 20px 35px rgba(0,0,0,0.15);
-  animation: fadeIn 0.8s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .section h2 {
   color: #7b5fb3;
-  font-size: 2.1rem;
+  font-size: 2rem;
 }
 
-/* Slideshow */
-.slideshow img {
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+img {
   width: 90%;
   max-width: 320px;
   border-radius: 20px;
-  display: none;
+  margin: 15px 0;
 }
 
-.slideshow img.active {
-  display: block;
+#musicBtn {
+  background: #7b5fb3;
 }
 
 footer {
   margin: 40px 0;
   font-size: 0.9rem;
-}
-
-#musicBtn {
-  background: #7b5fb3;
 }
 </style>
 </head>
@@ -105,40 +90,41 @@ footer {
 
 <header>
   <h1>Happy Birthday Madhu 🎂💜</h1>
-  <p>A small digital gift filled with love</p>
+  <p>A little digital surprise made with love</p>
 </header>
 
 <nav>
   <button onclick="toggleSection('about')">About Madhu</button>
   <button onclick="toggleSection('memories')">Memories Together</button>
-  <button onclick="toggleLetter()">Birthday Letter</button>
+  <button onclick="toggleSection('letter')">Birthday Letter</button>
   <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 </nav>
 
 <div id="about" class="section">
   <h2>About Madhu 🌸</h2>
   <p>
-    Madhu, you are kindness, warmth, and laughter all wrapped into one beautiful soul.
-    Life feels lighter and brighter with you in it.
+    Madhu, you are warmth, kindness, and strength wrapped into one beautiful soul.
+    Your laughter makes moments brighter and your presence makes life lighter.
+    I’m so grateful to have you as my best friend.
   </p>
 </div>
 
 <div id="memories" class="section">
   <h2>Our Memories 📸</h2>
-  <div class="slideshow">
-    <img src="pic1.jpg" class="active">
-    <img src="pic2.jpg">
-    <img src="pic3.jpg">
-  </div>
+  <!-- Replace these images with your own if you want -->
+  <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
 </div>
 
 <div id="letter" class="section">
   <h2>Birthday Letter 💌</h2>
   <p>
     Dear Madhu,<br><br>
-    Thank you for being my constant, my safe space, and my biggest blessing.
-    May your days be filled with smiles, love, and endless happiness.
-    Happy Birthday, always and forever 💜
+    On your special day, I just want you to know how deeply loved and appreciated
+    you are. Thank you for being my constant support, my safe place, and my
+    forever friend. May this year bring you happiness, peace, and everything
+    your heart dreams of. Happy Birthday 💜
   </p>
 </div>
 
@@ -151,16 +137,11 @@ footer {
 </footer>
 
 <script>
-/* Toggle sections */
 function toggleSection(id) {
-  document.querySelectorAll('.section').forEach(sec => {
-    if (sec.id !== id) sec.style.display = "none";
-  });
   const section = document.getElementById(id);
   section.style.display = section.style.display === "block" ? "none" : "block";
 }
 
-/* Music */
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("musicBtn");
 let playing = false;
@@ -175,29 +156,6 @@ function toggleMusic() {
   }
   playing = !playing;
 }
-
-/* Confetti effect */
-function toggleLetter() {
-  toggleSection('letter');
-  for (let i = 0; i < 30; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "💜";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }
-}
-
-/* Slideshow */
-let slideIndex = 0;
-setInterval(() => {
-  const slides = document.querySelectorAll(".slideshow img");
-  slides.forEach(s => s.classList.remove("active"));
-  slideIndex = (slideIndex + 1) % slides.length;
-  slides[slideIndex].classList.add("active");
-}, 3000);
 </script>
 
 </body>
